@@ -1,30 +1,21 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerWalking : MonoBehaviour //Simple Player Movement Script
 {
-    [SerializeField] private float speed = 5f;
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    public float walkspeed = 5f;
+    public Rigidbody2D rb;
+    float horizontal;
+    float vertical;
 
-    private void Awake()
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
     }
 
-    private void Update()
+    void FixedUpdate()
     {
-        // Get input (WASD or Arrow Keys)
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        // Normalize to prevent faster diagonal movement
-        movement.Normalize();
+        Vector2 movement = new Vector2(horizontal, vertical).normalized;
+        rb.MovePosition(rb.position + movement * walkspeed * Time.fixedDeltaTime);  
     }
-
-    private void FixedUpdate()
-    {
-        // Apply movement via physics
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-    }
-}   
+}
