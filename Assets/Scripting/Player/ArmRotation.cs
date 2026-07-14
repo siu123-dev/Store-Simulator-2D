@@ -2,12 +2,21 @@ using UnityEngine;
 
 public class PlayerArmRotation : MonoBehaviour //Arm des Spielers dreht sich in Richtung der Maus
 {
+    private SettManagers setts;
     public float speed = 5f;
     public Transform playerArm;
     public Vector2 direction;
+
+    void Start()
+    {
+        setts = FindAnyObjectByType<SettManagers>();
+    }
     void FixedUpdate()
     {
+        if(setts.currentMode == CurrentMode.Gameplay)
+        {
         RotateArmTowardsMouse();
+        }
     }
 
     public void RotateArmTowardsMouse()

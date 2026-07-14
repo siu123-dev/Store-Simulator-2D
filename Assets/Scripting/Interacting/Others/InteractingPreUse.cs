@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactables
 {
+    private SettManagers setts;
     [Header("Presets")]
     public GameObject Tipp;
     public Transform objectTipp;
@@ -12,6 +13,10 @@ public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactab
     public bool canInteract = false;
     public bool isInteracting = false;
 
+    void Start()
+    {
+        setts = FindAnyObjectByType<SettManagers>();
+    }
 
     void Awake()
     {
@@ -38,21 +43,24 @@ public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactab
 
     public void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if(setts.currentMode == CurrentMode.Gameplay)
         {
-            Tipp.SetActive(false);
-            rb.simulated = false;
-            transform.SetParent(prPresets.playerArmTransform);
-            transform.position = prPresets.playerArmTransform.position;
-            canInteract = false;
-            isInteracting = true;
-        }
-        else if(isInteracting && Input.GetKeyDown(KeyCode.E))
-        {
-            canInteract = true;
-            rb.simulated = true;
-            transform.SetParent(null);
-            isInteracting = false;
+            if (canInteract && Input.GetKeyDown(KeyCode.E))
+            {
+                Tipp.SetActive(false);
+                rb.simulated = false;
+                transform.SetParent(prPresets.playerArmTransform);
+                transform.position = prPresets.playerArmTransform.position;
+                canInteract = false;
+                isInteracting = true;
+            }
+            else if(isInteracting && Input.GetKeyDown(KeyCode.E))
+            {
+                canInteract = true;
+                rb.simulated = true;
+                transform.SetParent(null);
+                isInteracting = false;
+            }
         }
     }
 }
