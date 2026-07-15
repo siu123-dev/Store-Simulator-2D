@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Build, Water, UI
 - Active game object:
-  - Name: Shelf(Clone)
-  - Tag: AnyShelf
-  - Layer: Build
+  - Name: Manager
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

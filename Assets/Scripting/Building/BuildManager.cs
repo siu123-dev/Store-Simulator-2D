@@ -6,6 +6,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject shelfBeispiel;        // Das echte Regal
     public GameObject shelfPreviewBeispiel; // Das Vorschau-Regal
+    private SpriteRenderer previewSprite;
     public LayerMask buildingLayer;
 
     private Vector3 expectedRotation = Vector3.zero;
@@ -29,7 +30,10 @@ public class BuildManager : MonoBehaviour
             if (preview == null)
             {
                 preview = Instantiate(shelfPreviewBeispiel, mousePos, Quaternion.identity);
+                previewSprite = preview.GetComponent<SpriteRenderer>();
             }
+
+            CheckPreviewColor(mousePos, previewSprite);
 
             // Preview der Maus folgen lassen
             preview.transform.position = mousePos;
@@ -77,6 +81,22 @@ public class BuildManager : MonoBehaviour
         else
         {
             Debug.Log("Hier steht bereits etwas!");
+        }
+    }
+
+    public void CheckPreviewColor(Vector2 posMouse, SpriteRenderer prs)
+    {
+        Vector2 size = new Vector2(1f, 1f);
+
+        Collider2D hit = Physics2D.OverlapBox(posMouse, size, 0f, buildingLayer);
+
+        if(hit != null)
+        {
+            prs.color = Color.red;
+        }
+        if(hit == null)
+        {
+            prs.color = Color.green;
         }
     }
 }
