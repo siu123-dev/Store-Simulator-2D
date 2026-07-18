@@ -87,8 +87,6 @@ public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactab
                 
                 isInteracting = false;
 
-                Debug.Log("Is Holding: " + setts.holdedPackage.name);
-
                 canInteract = true;
             }
         }

@@ -573,3 +573,4 @@ MonoBehaviour:
   productIcon: {fileID: 0}
   productPreset: {fileID: 8414288880550340670}
   amountTMP: {fileID: 8695807648592666317}
+  setts: {fileID: 0}

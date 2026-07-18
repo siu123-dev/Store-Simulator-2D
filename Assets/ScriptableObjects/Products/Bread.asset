@@ -15,4 +15,5 @@ MonoBehaviour:
   marketPrice: 1.2
   maxStackSize: 15
   playerPrice: 0
+  id: 2
   icon: {fileID: -4431494890709657585, guid: 94878d51cfba9a84096ccc8967404d21, type: 3}

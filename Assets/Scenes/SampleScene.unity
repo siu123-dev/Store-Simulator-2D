@@ -1153,6 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PositionHandler
   plTransform: {fileID: 1542704535}
+  packagePrefab: {fileID: 8748674154855173533, guid: 55a294cdcbb8b3146ad7dc6ee9ea8a55, type: 3}
 --- !u!114 &812083679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,9 +1168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
   Data:
     money: 100
-  playerData:
-    positionX: 0
-    posiitonY: 0
+    playerData:
+      playerPosition: {x: 0, y: 0}
+    packages: []
 --- !u!1 &855888388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1184,8 @@ GameObject:
   - component: {fileID: 855888390}
   - component: {fileID: 855888392}
   - component: {fileID: 855888393}
+  - component: {fileID: 855888395}
+  - component: {fileID: 855888394}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1268,6 +1271,35 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   shelfCollider: {fileID: 8192509664895134493, guid: 8961c73215a560b4f90cc29ae9a5bc80, type: 3}
+--- !u!114 &855888394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855888388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7517986186e7c3498a7fe3f9c4fff56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PackageMono
+  AllPackages: []
+--- !u!114 &855888395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855888388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ff9e90cf46c3043a49fa1a38fd6be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProductDatabase
+  products:
+  - {fileID: 11400000, guid: 34aaf2c619e7022439615924d70278a6, type: 2}
+  - {fileID: 11400000, guid: 0666485410901774abb55b65b64ebf7c, type: 2}
+  - {fileID: 11400000, guid: be31573ab6477f34587427e236dd226b, type: 2}
 --- !u!1 &990274973
 GameObject:
   m_ObjectHideFlags: 0

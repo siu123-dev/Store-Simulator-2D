@@ -5,17 +5,21 @@ public class Package : MonoBehaviour
 {
     public ProductData product;
     public int amount;
-    public Sprite productIcon;
     public SpriteRenderer productPreset;
     public TMP_Text amountTMP;
 
 
     public SettManagers setts;
 
-    void Start()
+    public void RefreshUI()
+{
+    if(product != null)
     {
-        productPreset.sprite = productIcon;
+        productPreset.sprite = product.icon;
     }
+
+    amountTMP.text = amount.ToString();
+}
 
     void Update()
     {

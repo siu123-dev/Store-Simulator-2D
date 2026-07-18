@@ -7,5 +7,7 @@ public class ProductData : ScriptableObject
     public int maxStackSize;
     public float playerPrice;
 
+    public string id;
+
     public Sprite icon;
 }

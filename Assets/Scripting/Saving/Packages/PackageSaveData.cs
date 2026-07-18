@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class PackageSaveData : MonoBehaviour
+[System.Serializable]
+public class PackageSaveData
 {
-    void Start()
-    {
-        
-    }
+    public Vector2 position;
+
+    public string productID;
+
+    public int amount;
 }

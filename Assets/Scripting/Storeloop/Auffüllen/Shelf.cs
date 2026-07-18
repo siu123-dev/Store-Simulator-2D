@@ -19,6 +19,7 @@ public class Shelf : MonoBehaviour
         {
             iconRndr.sprite = null;
         }
+        
 
         amountText.text = currentAmount.ToString();
     }
@@ -37,7 +38,7 @@ public class Shelf : MonoBehaviour
         }
 
 
-        int remainingSpace = currentProduct.maxStackSize - currentAmount;
+        int remainingSpace = currentProduct.maxStackSize - currentAmount; //Zeile 41
         if(remainingSpace <= 0) return false;
 
         int amountToMove = Mathf.Min(remainingSpace, package.amount);
