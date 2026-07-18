@@ -22,6 +22,7 @@ public class LoadPackages : MonoBehaviour
             package.amount = data.amount;
 
             package.transform.position = data.position;
+            package.transform.eulerAngles = data.rotation;
 
            package.product = ProductDatabase.Instance.GetProduct(data.productID);
 
@@ -53,6 +54,8 @@ public class LoadPackages : MonoBehaviour
                 PackageSaveData data = new PackageSaveData();
 
                 data.position = package.transform.position;
+                data.rotation = package.transform.eulerAngles;
+                
                 data.amount = package.amount;
                 data.productID = package.product.id;
 

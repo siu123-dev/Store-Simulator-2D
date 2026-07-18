@@ -8,4 +8,5 @@ public class GameData
 
     public PlayerData playerData;
     public List<PackageSaveData> packages = new();
+    public List<ShelfSaveData> shelfs = new();
 }

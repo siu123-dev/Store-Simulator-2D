@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 959038737336196596}
   - component: {fileID: 3901218287967497781}
   - component: {fileID: 8192509664895134493}
+  - component: {fileID: -7404469331978986783}
   m_Layer: 3
   m_Name: Shelf
   m_TagString: AnyShelf
@@ -142,6 +143,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7404469331978986783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226362573778751154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f72f5911d562a743b353c556afa7c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shelf
+  amountText: {fileID: 3926859913637201179}
+  iconSpr: {fileID: 0}
+  iconRndr: {fileID: 6906441273008952420}
+  currentProduct: {fileID: 0}
+  currentAmount: 0
 --- !u!1 &1437467634276244951
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +256,6 @@ MonoBehaviour:
   iconRndr: {fileID: 6906441273008952420}
   currentProduct: {fileID: 0}
   currentAmount: 0
-  shelfCLICK: {fileID: 0}
 --- !u!1 &8636713898720328458
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: xy
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ed2e6dbfd3eb44ab70fc0717cb8d83, type: 2}
   m_sharedMaterial: {fileID: -5422498666572103970, guid: 88ed2e6dbfd3eb44ab70fc0717cb8d83, type: 2}
