@@ -9,6 +9,8 @@ public class BuildManager : MonoBehaviour
     private SpriteRenderer previewSprite;
     public LayerMask buildingLayer;
 
+    [SerializeField] Collider2D shelfCollider;
+
     private Vector3 expectedRotation = Vector3.zero;
 
     private GameObject preview;
@@ -70,18 +72,19 @@ public class BuildManager : MonoBehaviour
     {
         Vector2 size = new Vector2(1f, 1f);
 
-        Collider2D hit = Physics2D.OverlapBox(pos, size, 0f, buildingLayer);
+        Collider2D hit = Physics2D.OverlapBox(pos, size, rotation, buildingLayer);
 
         if (hit == null)
         {
-            Instantiate(shelfBeispiel, pos, Quaternion.Euler(0, 0, rotation));;
-
+            Instantiate(shelfBeispiel, pos, Quaternion.Euler(0, 0, rotation));
             Debug.Log("Regal platziert");
         }
         else
         {
             Debug.Log("Hier steht bereits etwas!");
         }
+
+        expectedRotation = Vector3.zero;
     }
 
     public void CheckPreviewColor(Vector2 posMouse, SpriteRenderer prs)

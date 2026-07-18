@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AnyInteractable
   - AnyShelf
+  - Package
   layers:
   - Default
   - TransparentFX

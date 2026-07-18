@@ -13,6 +13,10 @@ public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactab
     public bool canInteract = false;
     public bool isInteracting = false;
 
+    [Header("Art")]
+
+    public bool isPackage;
+
     void Start()
     {
         setts = FindAnyObjectByType<SettManagers>();
@@ -45,22 +49,56 @@ public class InteractingPreUse : MonoBehaviour //Got Script für alle Interactab
     {
         if(setts.currentMode == CurrentMode.Gameplay)
         {
-            if (canInteract && Input.GetKeyDown(KeyCode.E))
+            if (canInteract && Input.GetKeyDown(KeyCode.E) && !isInteracting)
             {
                 Tipp.SetActive(false);
                 rb.simulated = false;
+
+                GetItself();
+
                 transform.SetParent(prPresets.playerArmTransform);
                 transform.position = prPresets.playerArmTransform.position;
+
                 canInteract = false;
                 isInteracting = true;
+
+                Package pkcg = GetComponent<Package>();
+
+                if (pkcg == null)
+                {
+                    Debug.LogError("Package wurde NICHT gefunden!");
+                }
+                else
+                {
+                    Debug.Log("Package gefunden!");
+                }
+                setts.holdedPackage = pkcg;
+                setts.currentSlot = HoldingInfo.Package;
+
+                Debug.Log("Is Holding: " + setts.holdedPackage.name);
             }
             else if(isInteracting && Input.GetKeyDown(KeyCode.E))
             {
-                canInteract = true;
                 rb.simulated = true;
+
                 transform.SetParent(null);
+                setts.holdedPackage = null;
+                setts.currentSlot = HoldingInfo.None;
+                
                 isInteracting = false;
+
+                Debug.Log("Is Holding: " + setts.holdedPackage.name);
+
+                canInteract = true;
             }
+        }
+    }
+
+    public void GetItself()
+    {
+        if (isPackage)
+        {
+            setts.currentSlot = HoldingInfo.Package;
         }
     }
 }
