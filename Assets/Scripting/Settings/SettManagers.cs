@@ -31,6 +31,8 @@ public class SettManagers : MonoBehaviour
             package.product = milkProduct;
             package.amount = milkProduct.maxStackSize;
             package.productIcon = milkProduct.icon;
+
+            SaveSystem.Instance.Data.packageData.AllPackages.Add(package);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -40,6 +42,8 @@ public class SettManagers : MonoBehaviour
             package.product = riceProduct;
             package.amount = riceProduct.maxStackSize;
             package.productIcon = riceProduct.icon;
+
+            SaveSystem.Instance.Data.packageData.AllPackages.Add(package);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -49,6 +53,8 @@ public class SettManagers : MonoBehaviour
             package.product = breadProduct;
             package.amount = breadProduct.maxStackSize;
             package.productIcon = breadProduct.icon;
+
+            SaveSystem.Instance.Data.packageData.AllPackages.Add(package);
         }
     }
 }

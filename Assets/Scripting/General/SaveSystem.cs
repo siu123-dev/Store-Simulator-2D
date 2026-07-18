@@ -21,8 +21,8 @@ public class SaveSystem : MonoBehaviour //SaveSystem
 
     public void Save()
     {
-        string json = JsonUtility.ToJson(Data);
-        PlayerPrefs.SetString("GameSave", json);
+        string jsonGD = JsonUtility.ToJson(Data);
+        PlayerPrefs.SetString("GameSave", jsonGD);
         PlayerPrefs.Save();
     }
 
@@ -43,6 +43,7 @@ public class SaveSystem : MonoBehaviour //SaveSystem
     {
         PlayerPrefs.DeleteKey("GameSave"); // wichtig!
         Data = new GameData();
+
         Save();
         Debug.Log("Save zur�ckgesetzt");
     }
