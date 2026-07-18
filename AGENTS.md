@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Build, Water, UI
 - Active game object:
-  - Name: Package(Clone)
-  - Tag: Package
-  - Layer: Default
+  - Name: DataRightTop
+  - Tag: Untagged
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
